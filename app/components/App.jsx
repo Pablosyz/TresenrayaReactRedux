@@ -17,6 +17,17 @@ export default class App extends React.Component {
         ['-', '-', '-'],
         ],
     };
+    this.appClick = this.appClick.bind(this);
+  }
+
+  appClick(numeroFila, numberoColumna) {
+      let valores = this.state.valores;
+      let nuevoValor = this.state.turno === JUGADORX ? 'X' : '0';
+      valores[numeroFila][numberoColumna] = nuevoValor;
+      this.setState({
+          turno: this.state.turno === JUGADORX ? JUGADOR0 : JUGADORX,
+          valores: this.state.valores,
+      });
   }
 
   render() {
@@ -25,7 +36,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Cabecera texto={texto}/>
-          <Tablero valores={this.state.valores}/>
+          <Tablero valores={this.state.valores} appClick={this.appClick}/>
         </div>
       );
   }
