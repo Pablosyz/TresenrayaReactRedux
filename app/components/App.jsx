@@ -19,19 +19,18 @@ export default class App extends React.Component {
 
   render() {
       let texto = "Turno del " + this.state.turno;
-      let htmltablero = this.state.valores.map(function (valoresFila, indiceFila) {
-        let fila = valoresFila.map(function (valor, indiceColumna) {
-          return (
-            <span>
-              {valor}
-            </span>
-          )
+      let tablero = this.state.valores.map(function (valoresFila, indiceFila) {
+        let fila = valoresFila.map((valor, indiceColumna) => {
+            let mykey = "" + indiceFila + indiceColumna;
+            return (
+              <span key={mykey}>{valor}</span>
+            );
         });
         return (
-          <div>
-            {fila}
-          </div>
-        )
+           <div key={"fila" + indiceFila}>
+             {fila}
+           </div>
+        );
       });
 
       return (
@@ -39,7 +38,7 @@ export default class App extends React.Component {
           <header className="cabecera">
             {texto}
           </header>
-          {htmltablero}
+          {tablero}
         </div>
       );
   }
