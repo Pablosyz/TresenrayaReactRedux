@@ -6,12 +6,7 @@ const casillaStyle = {
 };
 
 export default class Tablero extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-      console.log(this.props)
         let tablero = this.props.valores.map((valoresFila, indiceFila) => {
             let fila = valoresFila.map((valor, indiceColumna) => {
                 let mykey = "" + indiceFila + indiceColumna;
