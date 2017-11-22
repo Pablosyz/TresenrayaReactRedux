@@ -1,4 +1,5 @@
 import React from 'react';
+import Casilla from './Casilla.jsx';
 
 const casillaStyle = {
     height: '100px',
@@ -11,7 +12,7 @@ export default class Tablero extends React.Component {
             let fila = valoresFila.map((valor, indiceColumna) => {
                 let mykey = "" + indiceFila + indiceColumna;
                 return (
-                  <button style={casillaStyle} key={mykey}>{valor}</button>
+                  <Casilla valor={valor} key={mykey}/>
                 );
             });
             return (
