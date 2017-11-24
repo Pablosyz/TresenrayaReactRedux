@@ -1,11 +1,16 @@
 import React from 'react';
+import { Panel } from 'react-bootstrap';
+
+const title = (
+  <h3>Turno</h3>
+);
 
 export default class Cabecera extends React.Component {
     render() {
         return (
-          <header className="cabecera">
+          <Panel header={title} bsStyle="info" className="turno">
             {this.props.texto}
-          </header>
+          </Panel>
         );
     }
 
