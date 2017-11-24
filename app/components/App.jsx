@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   render() {
       let texto = "Turno del " + this.state.turno;
-      let tablero = this.state.valores.map(function (valoresFila, indiceFila) {
+      let tablero = this.state.valores.map((valoresFila, indiceFila) => {
         let fila = valoresFila.map((valor, indiceColumna) => {
             let mykey = "" + indiceFila + indiceColumna;
             return (
