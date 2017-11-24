@@ -24,9 +24,9 @@ export default class App extends React.Component {
   }
 
   appClick(numeroFila, numberoColumna) {
-      let valores = this.state.valores;
+      let nuevosvalores = this.state.valores.slice();
       let nuevoValor = this.state.turno === JUGADORX ? 'X' : '0';
-      valores[numeroFila][numberoColumna] = nuevoValor;
+      nuevosvalores[numeroFila][numberoColumna] = nuevoValor;
       this.setState({
           turno: this.state.turno === JUGADORX ? JUGADOR0 : JUGADORX,
           valores: this.state.valores,
