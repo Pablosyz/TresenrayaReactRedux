@@ -3,60 +3,44 @@ import './../assets/scss/main.scss';
 import Cabecera from './Cabecera.jsx';
 import Tablero from './Tablero.jsx';
 import Reset from './Reset.jsx';
+import { JUGADORX, JUGADOR0, TABLERO } from '../constants/constants';
+import { connect } from 'react-redux';
+import { jugarPosicion, reset } from './../reducers/actions';
 
-const JUGADORX = "jugador 1 - las X";
-const JUGADOR0 = "jugador 2 - los 0";
-
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-        turno: JUGADORX,
-        valores: [
-        ['-', '-', '-'],
-        ['-', '-', '-'],
-        ['-', '-', '-'],
-        ],
-        movimientos: 0
-    };
     this.appClick = this.appClick.bind(this);
     this.resetClick = this.resetClick.bind(this);
   }
 
-  appClick(numeroFila, numberoColumna) {
-      let nuevosvalores = this.state.valores.slice();
-      let nuevoValor = this.state.turno === JUGADORX ? 'X' : '0';
-      nuevosvalores[numeroFila][numberoColumna] = nuevoValor;
-      this.setState({
-          turno: this.state.turno === JUGADORX ? JUGADOR0 : JUGADORX,
-          valores: this.state.valores,
-          movimientos: this.state.movimientos + 1
-      });
+  appClick(numeroFila, numeroColumna) {
+    this.props.dispatch(jugarPosicion(numeroFila, numeroColumna, this.props.turno));
   }
 
   resetClick(){
-    this.setState({
-      turno: JUGADORX,
-      valores: [
-      ['-', '-', '-'],
-      ['-', '-', '-'],
-      ['-', '-', '-'],
-      ],
-      movimientos: 0
-    });
+    this.props.dispatch(reset());
   }
 
-  render() {
-      let texto = "Turno del " + this.state.turno;
-
+ render() {
+      let texto = "Turno del " + this.props.turno;
       return (
         <div>
           <Cabecera texto={texto}/>
-          <Tablero valores={this.state.valores} appClick={this.appClick}/>
-          <h3>Número de movimientos: {this.state.movimientos}</h3>
+          <Tablero valores={this.props.tablero} appClick={this.appClick}/>
+          <h3>Número de movimientos: {this.props.movimientos}</h3>
           <Reset resetClick={this.resetClick}></Reset>
         </div>
       );
   }
 
+
 }
+function mapStateToProps(state) {
+    return {
+        movimientos: state.movimientos,
+        tablero: state.tablero,
+        turno: state.turno
+    };
+}
+export default connect(mapStateToProps)(App);
