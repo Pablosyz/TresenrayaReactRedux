@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-export default class Casilla extends React.Component {
+export default class Reset extends React.Component {
     constructor(props) {
         super(props);
         this.click = this.click.bind(this);
@@ -18,5 +17,4 @@ export default class Casilla extends React.Component {
           </button>
         );
     }
-
 }
