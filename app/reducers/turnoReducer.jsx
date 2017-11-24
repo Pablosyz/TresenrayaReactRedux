@@ -1,19 +1,16 @@
 
 import {JUGADORX, JUGADOR0} from '../constants/constants';
 
-
 function turnoReducer(state = JUGADORX, action) {
-  switch (action.type) {
+    switch (action.type) {
     case 'JUGAR_POSICION':
-       console.log("turnoreducer jugar posicion!!");
-       return action.turno === JUGADORX ? JUGADOR0 : JUGADORX;
+        console.log("turnoreducer jugar posicion!!");
+        return action.turno === JUGADORX ? JUGADOR0 : JUGADORX;
     case 'RESET':
-      return JUGADORX;
+        return JUGADORX;
     default:
-      return state;
-  }
+        return state;
+    }
 }
-
-
 
 export default turnoReducer;

@@ -1,15 +1,13 @@
 
 function movimientosReducer(state = 0, action) {
-  switch (action.type) {
+    switch (action.type) {
     case 'JUGAR_POSICION':
-      return state+1;
+        return state + 1;
     case 'RESET':
-      return 0;
+        return 0;
     default:
-      return state;
-  }
+        return state;
+    }
 }
-
-
 
 export default movimientosReducer;

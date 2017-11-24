@@ -6,8 +6,7 @@ import movimientosReducer from './movimientosReducer';
 const GlobalState = combineReducers({
     turno: turnoReducer,
     tablero: gameReducer,
-    movimientos: movimientosReducer
+    movimientos: movimientosReducer,
 });
-
 
 export default GlobalState;
