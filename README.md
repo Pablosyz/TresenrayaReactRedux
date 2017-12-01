@@ -7,6 +7,9 @@
 
 ## Instructions
 
-1. Execute 'npm install'.
-2. Execute 'npm start'.
-3. App will be loaded at the URL [http://localhost:8080](http://localhost:8080).
+1. git clone git@github.com:ging/TresenrayaReactRedux.git
+2. cd TresenrayaReactRedux
+3. git checkout TicTacToe
+4. npm install
+5. npm start
+6. App will be loaded at the URL [http://localhost:8080](http://localhost:8080)
