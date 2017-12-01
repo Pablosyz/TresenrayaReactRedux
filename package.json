@@ -1,5 +1,5 @@
 {
-  "name": "Tic Tac Toe",
+  "name": "TicTacToe",
   "version": "0.1.0",
   "author": "Aldo Gordillo <agordillo@dit.upm.es>",
   "devDependencies": {
