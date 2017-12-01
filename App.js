@@ -1,10 +1,20 @@
 import React from 'react';
-import AppContent from './app/components/App';
+import { StackNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <AppContent/>
-    );
+import IndexScreen from './app/components/Index';
+import GameScreen from './app/components/App';
+
+export default App = StackNavigator({
+  IndexScreen: {
+    screen: IndexScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  GameScreen: {
+    screen: GameScreen,
+    navigationOptions: {
+      header: null
+    }
   }
-}
+})
